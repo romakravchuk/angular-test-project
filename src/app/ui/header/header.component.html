@@ -1,0 +1,50 @@
+<!--<nav class='navbar navbar-dark bg-dark mb-5'>-->
+	<!--<a class='navbar-brand' href='/'>{{title}}</a>-->
+	<!--<div class='navbar-expand mr-auto'>-->
+		<!--<div class='navbar-nav'>-->
+			<!--<a class='nav-link' *ngFor='let link of links' [routerLinkActiveOptions]='{exact: true}' routerLinkActive='active' [routerLink]='link.link'>-->
+				<!--<span *ngIf='link.icon' [class]='link.icon'></span>-->
+				<!--{{link.label}}-->
+			<!--</a>-->
+		<!--</div>-->
+	<!--</div>-->
+	<!--<div class='navbar-expand ml-auto navbar-nav'>-->
+		<!--<div class='navbar-nav'>-->
+			<!--<a class='nav-item nav-link' href='https://github.com/beeman' target='_blank'>-->
+				<!--<i class='fa fa-github'></i>-->
+			<!--</a>-->
+			<!--<a class='nav-item nav-link' href='https://twitter.com/beeman_nl' target='_blank'>-->
+				<!--<i class='fa fa-twitter'></i>-->
+			<!--</a>-->
+			<!--<a class='nav-item nav-link' href='https://medium.com/@beeman' target='_blank'>-->
+				<!--<i class='fa fa-medium'></i>-->
+			<!--</a>-->
+		<!--</div>-->
+	<!--</div>-->
+<!--</nav>-->
+
+<nav class='navbar navbar-expand-lg navbar-light'>
+	<div class='container'>
+		<div class='navbar-left mr-4'>
+			<button class='navbar-toggler' type='button' (click)="collapseMobileNav()">☰</button>
+			<a class='navbar-brand' href='#'>
+				<img class='logo-dark' src='../assets/img/logo-dark.png' alt='logo'>
+			</a>
+		</div>
+		<section class='navbar-mobile' [ngClass]='{"show": isMobileNavOpen}'>
+			<nav class='nav nav-navbar mr-auto'>
+				<a class='nav-link' *ngFor='let link of links' [routerLinkActiveOptions]='{exact: true}' routerLinkActive='active' [routerLink]='link.link'>
+					<span *ngIf='link.icon' [class]='link.icon'></span>
+					{{link.label}}
+				</a>
+			</nav>
+			<nav class='nav nav-navbar ml-lg-5'>
+				<a class='nav-link' href='#'>
+					<i class='fa fa-shopping-cart'></i>
+					<span class='badge badge-number badge-danger'>4</span>
+				</a>
+				<a class='nav-link' href='#' data-toggle='offcanvas' data-target='#offcanvas-search'><i class='fa fa-search'></i></a>
+			</nav>
+		</section>
+	</div>
+</nav>

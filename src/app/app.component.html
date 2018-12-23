@@ -1,0 +1,17 @@
+<div class='main'>
+	<!--Header-->
+	<app-header [title]=config.title [links]=config.links></app-header>
+	<!--END Header-->
+	
+	<!--Pages-->
+	<ng-content></ng-content>
+	<router-outlet></router-outlet>
+	<!--END Pages-->
+	
+	<!--Footer-->
+	<app-footer></app-footer>
+	<!--END Footer-->
+</div>
+
+
+
