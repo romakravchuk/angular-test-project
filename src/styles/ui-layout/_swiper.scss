@@ -1,0 +1,31 @@
+.swiper-container-horizontal {
+	min-height: 450px;
+}
+
+//
+// Swiper navigation
+//
+
+.swiper-button-prev,
+.swiper-button-next {
+	background-size: 10px 10px !important;
+	background-color: rgba(0, 0, 0, 0.2);
+	background-image: none !important;
+	transition: .3s ease-out;
+
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+
+	&:before {
+		position: relative;
+	}
+}
+
+.swiper-button-prev {
+	left: 0 !important;
+}
+
+.swiper-button-next {
+	right: 0 !important;
+}
