@@ -1,14 +1,14 @@
 
 .navbar {
-	position: absolute;
-	top: 5px;
-	left: 0;
-	right: 0;
+	//position: absolute;
+	//top: 5px;
+	//left: 0;
+	//right: 0;
 	transition: transform .3s ease-out, background-color .3s ease-out;
 
 	// Remove paddings, because of full-height navbar
-	padding-top: 0;
-	padding-bottom: 0;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	//min-height: $navbar-min-height;
 
 	.modal-open & {

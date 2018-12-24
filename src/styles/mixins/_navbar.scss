@@ -17,7 +17,7 @@
 
 
 @mixin navbar-dark() {
-  @include navbar-logo('dark');
+  @include navbar-logo('light');
 
   .navbar-toggler {
     color: $navbar-dark-color;
@@ -68,7 +68,7 @@
 
 
 @mixin navbar-light() {
-  @include navbar-logo('light');
+  @include navbar-logo('dark');
 
   .navbar-toggler {
     color: $navbar-light-color;
