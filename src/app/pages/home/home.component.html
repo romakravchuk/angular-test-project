@@ -1,11 +1,19 @@
-<swiper >
-  <div>
-    Swiper slide content 1
-  </div>
-  <div>
-    Swiper slide content 2
-  </div>
-  <div>
-    Swiper slide content 3
-  </div>
+<swiper>
+    <div *ngFor="let featuredProduct of featuredProducts" [ngStyle]="{'background-image': 'url(' + featuredProduct.image + ')'}">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-xl-6">
+                    <div class="p-4">
+                        <h2>{{featuredProduct.product}}</h2>
+                        <p>{{featuredProduct.description}}</p>
+                        <h5>${{featuredProduct.price}}</h5>
+                        <div class="group">
+                            <button class="btn btn-outline-dark">Read More</button>
+                            <button class="btn btn-success m-1">Buy Product</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </swiper>

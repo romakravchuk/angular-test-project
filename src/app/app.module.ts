@@ -1,7 +1,12 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+
+// In memory Web Api
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService} from './products/in-memory-data.service';
 
 // Ui elements
 import {HeaderComponent} from './ui/header/header.component';
@@ -21,7 +26,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
         delay: 5500,
     },
     direction: 'horizontal',
-    slidesPerView: 1,
+    slidesPerView: 3,
     navigation: true
 };
 
@@ -37,6 +42,14 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     imports: [
         BrowserModule,
         AppRoutingModule,
+        HttpClientModule,
+
+        // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+        // and returns simulated server responses.
+        // Remove it when a real server is ready to receive requests.
+        HttpClientInMemoryWebApiModule.forRoot(
+            InMemoryDataService, { dataEncapsulation: false }
+        ),
         SwiperModule
     ],
     providers: [
