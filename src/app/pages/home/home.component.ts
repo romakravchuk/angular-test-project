@@ -1,18 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductsService} from '../../products/products.service';
-import {ProductModel} from '../../models/product.model';
+import {PagesService} from '../pages.service';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    providers: [ProductsService]
+    providers: [ProductsService, PagesService]
 })
 export class HomeComponent implements OnInit {
 
     allProducts: any;
     featuredProducts: any;
 
-    constructor(private productsService: ProductsService) {
+    constructor(
+      private productsService: ProductsService,
+      public pagesService: PagesService,
+      ) {
     }
 
     ngOnInit() {
@@ -21,7 +24,6 @@ export class HomeComponent implements OnInit {
             .then(data => {
                 this.allProducts = data;
                 this.featuredProducts = this.allProducts.filter(p => p.featured);
-                console.log(this.featuredProducts);
             });
     }
 

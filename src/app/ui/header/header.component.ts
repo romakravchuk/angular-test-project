@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {PagesService} from '../../pages/pages.service';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
+  providers: [PagesService]
 })
 export class HeaderComponent implements OnInit {
 
@@ -15,6 +17,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+  
 
   collapseMobileNav() {
     this.isMobileNavOpen = !this.isMobileNavOpen;

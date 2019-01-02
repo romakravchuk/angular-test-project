@@ -9,7 +9,7 @@
                         <h5>${{featuredProduct.price}}</h5>
                         <div class="group">
                             <button class="btn btn-outline-dark">Read More</button>
-                            <button class="btn btn-success m-1">Buy Product</button>
+                            <button class="btn btn-success m-1" (click)='pagesService.addProduct(featuredProduct)'>Buy Product</button>
                         </div>
                     </div>
                 </div>
