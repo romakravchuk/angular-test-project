@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {PagesService} from './pages/pages.service';
 
 // In memory Web Api
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
@@ -20,6 +21,7 @@ import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
 import {HomeComponent} from './pages/home/home.component';
 import {AboutComponent} from './pages/about/about.component';
 import {ContactsComponent} from './pages/contacts/contacts.component';
+import {ProductsService} from './products/products.service';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     autoplay: {
@@ -53,6 +55,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
         SwiperModule
     ],
     providers: [
+        PagesService,
+        ProductsService,
         {
             provide: SWIPER_CONFIG,
             useValue: DEFAULT_SWIPER_CONFIG

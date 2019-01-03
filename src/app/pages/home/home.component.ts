@@ -5,7 +5,6 @@ import {PagesService} from '../pages.service';
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    providers: [ProductsService, PagesService]
 })
 export class HomeComponent implements OnInit {
 
@@ -27,4 +26,7 @@ export class HomeComponent implements OnInit {
             });
     }
 
+    public addProductToCart(product) {
+        this.pagesService.setProduct(product);
+    }
 }

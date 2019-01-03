@@ -1,27 +1,42 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {PagesService} from '../../pages/pages.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  providers: [PagesService]
+    selector: 'app-header',
+    templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() title;
-  @Input() links = [];
+    @Input() title;
+    @Input() links = [];
 
-  isMobileNavOpen = false;
+    isMobileNavOpen = false;
+    productsInCart: any = [];
 
-  constructor() { }
+    constructor(private pagesService: PagesService) {
+    }
 
-  ngOnInit() {
-  }
-  
-  
+    ngOnInit() {
+        this.watchCartForChanges();
+        this.checkCartForProducts();
+    }
 
-  collapseMobileNav() {
-    this.isMobileNavOpen = !this.isMobileNavOpen;
-  }
+    checkCartForProducts() {
+        const products = localStorage.getItem('cardProducts');
+        if (products !== null) {
+            this.productsInCart = [JSON.parse(products)];
+        }
+    }
+
+    watchCartForChanges() {
+        this.pagesService.watchStorage
+            .subscribe((currentProduct) => {
+                this.productsInCart.push(currentProduct);
+            });
+    }
+
+    collapseMobileNav() {
+        this.isMobileNavOpen = !this.isMobileNavOpen;
+    }
 
 }
