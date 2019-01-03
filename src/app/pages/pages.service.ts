@@ -14,8 +14,9 @@ export class PagesService {
     }
 
     public setProduct(data: any) {
-        this.currentProduct.push(JSON.stringify(data));
-        localStorage.setItem(this.productKey, this.currentProduct);
+        this.currentProduct.push(data);
+        console.log(this.currentProduct);
+        localStorage.setItem(this.productKey, JSON.stringify(this.currentProduct));
         this.storageSub.next(data);
     }
 

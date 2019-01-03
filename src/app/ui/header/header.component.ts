@@ -23,8 +23,10 @@ export class HeaderComponent implements OnInit {
 
     checkCartForProducts() {
         const products = localStorage.getItem('cardProducts');
+        console.log(products, 'products');
+        console.log(JSON.parse(products), 'json');
         if (products !== null) {
-            this.productsInCart = [JSON.parse(products)];
+            this.productsInCart = JSON.parse(products);
         }
     }
 
