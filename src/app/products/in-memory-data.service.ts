@@ -13,7 +13,8 @@ export class InMemoryDataService implements InMemoryDbService {
                 description: 'A white styrofoam cup typically used in the south to drink Promethazine with Codeine cough syrup mixed.',
                 price: '120.99',
                 featured: true,
-                image: '../assets/img/3.jpg'
+                image: '../assets/img/3.jpg',
+                quantity: 20
             },
             {
                 id: 2,
@@ -21,7 +22,8 @@ export class InMemoryDataService implements InMemoryDbService {
                 description: 'Plants are multicellular organisms in the kingdom Plantae that use photosynthesis to make their own food.',
                 price: '120.99',
                 featured: true,
-                image: '../assets/img/4.jpg'
+                image: '../assets/img/4.jpg',
+                quantity: 20
             },
             {
                 id: 3,
@@ -29,7 +31,8 @@ export class InMemoryDataService implements InMemoryDbService {
                 description: 'A cactus is a member of the plant family Cactaceae, a family comprising about 127 genera with some species.',
                 price: '15.99',
                 featured: true,
-                image: '../assets/img/5.jpg'
+                image: '../assets/img/5.jpg',
+                quantity: 20
             }
         ];
         return {products};

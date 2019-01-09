@@ -5,4 +5,6 @@ export class ProductModel {
     price: string;
     featured?: boolean;
     image: string;
+    quantity: string;
+    quantityInCart: string;
 }

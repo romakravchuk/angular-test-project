@@ -4,6 +4,7 @@
 	//top: 5px;
 	//left: 0;
 	//right: 0;
+	z-index: 1050;
 	transition: transform .3s ease-out, background-color .3s ease-out;
 
 	// Remove paddings, because of full-height navbar
@@ -134,13 +135,6 @@
 
 	.nav-item {
 		position: relative;
-	}
-
-	> .nav-item > .nav-link,
-	> .nav-link {
-		//line-height: $navbar-min-height;
-		padding-top: 0;
-		padding-bottom: 0;
 	}
 
 	.nav-link {
@@ -286,7 +280,6 @@
 	}
 
 }
-
 
 //----------------------------------------------------/
 // Mobile

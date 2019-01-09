@@ -28,7 +28,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
         delay: 5500,
     },
     direction: 'horizontal',
-    slidesPerView: 3,
+    slidesPerView: 1,
     navigation: true
 };
 

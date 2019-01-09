@@ -74,7 +74,7 @@
     color: $navbar-light-color;
 
     &:hover {
-      //color: $navbar-light-color-hover;
+      //color: $navbar-light-hover-color;
     }
   }
 
@@ -84,7 +84,7 @@
 
   .nav-navbar {
     > .nav-item > .nav-link,
-    > .nav-link {
+    .nav-link {
       color: $navbar-light-color;
 
       > .arrow {
@@ -94,9 +94,9 @@
 
     > .nav-item.show > .nav-link,
     > .nav-item:hover > .nav-link,
-    > .nav-link.show,
-    > .nav-link:hover {
-      //color: $navbar-light-color-hover;
+    .nav-link.show,
+    .nav-link:hover {
+      color: $navbar-light-hover-color;
 
       > .arrow {
         border-top-color: inherit;

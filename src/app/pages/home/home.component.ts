@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
 
     allProducts: any;
     featuredProducts: any;
+    productKey = 'cardProducts';
 
     constructor(
       private productsService: ProductsService,
@@ -27,6 +28,6 @@ export class HomeComponent implements OnInit {
     }
 
     public addProductToCart(product) {
-        this.pagesService.setProduct(product);
+        this.pagesService.addProduct(product);
     }
 }

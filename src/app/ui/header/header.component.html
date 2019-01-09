@@ -14,14 +14,30 @@
             <nav class='nav nav-navbar ml-lg-5'>
                 <div class="shopping-cart-wrap">
                     <a class='nav-link' href='#'> <i class='fa fa-shopping-cart'></i>
-                        <span class='badge badge-number badge-danger'>4</span>
+                        <span class='badge badge-number badge-danger' *ngIf='productsInCart.length'>{{sumTotalItemsInCart}}</span>
                     </a>
-                    <div>
-                        <ul>
-                            <li *ngFor="let product of productsInCart">
-                                {{product.product}}
+                    <div class='shopping-list-cart' *ngIf='productsInCart.length'>
+                        <div class='shopping-list-cart-header'>
+                            <h6>My Cart</h6>
+                        </div>
+                        <ul class='list-unstyled shopping-list-cart-product'>
+                            <li *ngFor="let product of productsInCart" class='d-flex'>
+                                <div>
+                                    <img [src]='product.image' alt=''>
+                                </div>
+                                <div class='ml-1 small'>
+                                    <div>{{product.product}}</div>
+                                    <div>
+                                        <span *ngIf='product.quantityInCart > 1'>{{product.quantityInCart}} x </span>
+                                        <span>${{product.price}}</span>
+                                    </div>
+                                </div>
                             </li>
                         </ul>
+                        <div class='shopping-list-cart-footer d-flex justify-content-between'>
+                            <span>Total</span>
+                            <span>${{sumTotalPriceInCart}}</span>
+                        </div>
                     </div>
                 </div>
                 <a class='nav-link' href='#' data-toggle='offcanvas' data-target='#offcanvas-search'><i class='fa fa-search'></i></a>

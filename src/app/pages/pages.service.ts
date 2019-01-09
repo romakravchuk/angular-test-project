@@ -13,15 +13,37 @@ export class PagesService {
     constructor() {
     }
 
-    public setProduct(data: any) {
+    public addProduct(data: any) {
+        if (this.productKey in localStorage) {
+            const products = this.getProduct(this.productKey);
+            this.currentProduct = JSON.parse(products);
+
+            const findProduct = this.currentProduct.find(p => p.id === data.id);
+
+            if (findProduct && findProduct.quantityInCart < data.quantity) {
+                findProduct.quantityInCart += 1;
+                localStorage.setItem(this.productKey, JSON.stringify(this.currentProduct));
+                this.storageSub.next(findProduct);
+            } else if (!findProduct) {
+                this.setProductToLocalStorage(data);
+            } else if (findProduct && findProduct.quantityInCart === data.quantity) {
+                alert('You cant by more then ' + findProduct.quantity + ' items');
+            }
+
+        } else {
+            this.setProductToLocalStorage(data);
+        }
+    }
+
+    private setProductToLocalStorage(data: any) {
+        data.quantityInCart = 1;
         this.currentProduct.push(data);
-        console.log(this.currentProduct);
         localStorage.setItem(this.productKey, JSON.stringify(this.currentProduct));
         this.storageSub.next(data);
     }
 
-    public getProduct() {
-        localStorage.getItem(this.productKey);
+    public getProduct(key: string) {
+        return localStorage.getItem(key);
     }
 
     private removeProduct(key: string) {
