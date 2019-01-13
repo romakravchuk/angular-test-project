@@ -10,7 +10,6 @@ export class HomeComponent implements OnInit {
 
     allProducts: any;
     featuredProducts: any;
-    productKey = 'cardProducts';
 
     constructor(
       private productsService: ProductsService,

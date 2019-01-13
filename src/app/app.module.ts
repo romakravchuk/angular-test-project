@@ -16,6 +16,7 @@ import {FooterComponent} from './ui/footer/footer.component';
 import {SwiperModule} from 'ngx-swiper-wrapper';
 import {SWIPER_CONFIG} from 'ngx-swiper-wrapper';
 import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 // Pages
 import {HomeComponent} from './pages/home/home.component';
@@ -39,18 +40,19 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
         FooterComponent,
         HomeComponent,
         AboutComponent,
-        ContactsComponent
+        ContactsComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
+        NgbModule,
 
         // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
         // and returns simulated server responses.
         // Remove it when a real server is ready to receive requests.
         HttpClientInMemoryWebApiModule.forRoot(
-            InMemoryDataService, { dataEncapsulation: false }
+            InMemoryDataService, {dataEncapsulation: false}
         ),
         SwiperModule
     ],

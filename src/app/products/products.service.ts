@@ -19,6 +19,16 @@ export class ProductsService {
             .catch(this.handleError);
     }
 
+    /**
+     * Get data for single product details page
+     */
+    getDataForProduct(id: number): Promise<any> {
+        return this.http.get<any>(`${this.productsUrl}/${id}`)
+            .toPromise()
+            .then(response => response as any)
+            .catch(this.handleError);
+    }
+
     private handleError(error: any): Promise<any> {
         return Promise.reject(error);
     }

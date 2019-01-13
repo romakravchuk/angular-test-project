@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
     @Input() links = [];
 
     isMobileNavOpen = false;
+    isCartOpen = false;
     productsInCart: any = [];
     totalPriceInCart: any = [];
     totalItemsInCart: any = [];
@@ -21,11 +22,13 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.watchCartForChanges();
-        this.checkCartForProducts();
+        if (this.productsInCart.length) {
+            this.watchCartForChanges();
+            this.checkCartForProducts();
+        }
     }
 
-    checkCartForProducts() {
+    private checkCartForProducts() {
         const products = JSON.parse(this.pagesService.getProduct(this.pagesService.productKey));
         if (this.pagesService.productKey in localStorage) {
             this.productsInCart = products;
@@ -34,7 +37,7 @@ export class HeaderComponent implements OnInit {
         }
     }
 
-    watchCartForChanges() {
+    private watchCartForChanges() {
         this.pagesService.watchStorage
             .subscribe((currentProduct) => {
                 const findProduct = this.productsInCart.find(p => p.id === currentProduct.id);
@@ -49,7 +52,18 @@ export class HeaderComponent implements OnInit {
             });
     }
 
-    calculateTotalPrice() {
+    public removeProductFromCart(product) {
+        this.productsInCart = this.productsInCart.filter(p => p.id !== product.id);
+
+        this.pagesService.clearLocalStorageCart();
+        this.pagesService.setLocalStorageCart(this.productsInCart);
+        if (this.productsInCart.length) {
+            this.calculateTotalPrice();
+            this.calculateTotalItemsInCart();
+        }
+    }
+
+    private calculateTotalPrice() {
         this.totalPriceInCart = [];
         this.productsInCart.forEach(product => {
             const productPrice = product.price * product.quantityInCart;
@@ -58,7 +72,7 @@ export class HeaderComponent implements OnInit {
         this.sumTotalPriceInCart = this.totalPriceInCart.reduce((sum, current) => sum + current).toFixed(2);
     }
 
-    calculateTotalItemsInCart() {
+    private calculateTotalItemsInCart() {
         this.totalItemsInCart = [];
         this.productsInCart.forEach(product => {
             this.totalItemsInCart.push(product.quantityInCart * 1);
@@ -66,8 +80,15 @@ export class HeaderComponent implements OnInit {
         this.sumTotalItemsInCart = this.totalItemsInCart.reduce((sum, current) => sum + current);
     }
 
-    collapseMobileNav() {
+    public collapseMobileNav() {
         this.isMobileNavOpen = !this.isMobileNavOpen;
     }
 
+    public showCart() {
+        this.isCartOpen = !this.isCartOpen;
+    }
+
+    public hideCart() {
+        this.isCartOpen = false;
+    }
 }

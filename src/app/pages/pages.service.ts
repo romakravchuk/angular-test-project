@@ -22,7 +22,7 @@ export class PagesService {
 
             if (findProduct && findProduct.quantityInCart < data.quantity) {
                 findProduct.quantityInCart += 1;
-                localStorage.setItem(this.productKey, JSON.stringify(this.currentProduct));
+                this.setLocalStorageCart(this.currentProduct);
                 this.storageSub.next(findProduct);
             } else if (!findProduct) {
                 this.setProductToLocalStorage(data);
@@ -38,7 +38,7 @@ export class PagesService {
     private setProductToLocalStorage(data: any) {
         data.quantityInCart = 1;
         this.currentProduct.push(data);
-        localStorage.setItem(this.productKey, JSON.stringify(this.currentProduct));
+        this.setLocalStorageCart(this.currentProduct);
         this.storageSub.next(data);
     }
 
@@ -46,13 +46,11 @@ export class PagesService {
         return localStorage.getItem(key);
     }
 
-    private removeProduct(key: string) {
-        localStorage.removeItem(key);
-        this.storageSub.next(key);
+    public clearLocalStorageCart() {
+        return localStorage.clear();
     }
 
-    private clearCart() {
-        localStorage.clear();
+    public setLocalStorageCart(product) {
+        localStorage.setItem(this.productKey, JSON.stringify(product));
     }
-
 }

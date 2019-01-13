@@ -14,6 +14,7 @@ export class InMemoryDataService implements InMemoryDbService {
                 price: '120.99',
                 featured: true,
                 image: '../assets/img/3.jpg',
+                promotion_image: '../assets/img/promotion-image-3.jpg',
                 quantity: 20
             },
             {
@@ -23,6 +24,7 @@ export class InMemoryDataService implements InMemoryDbService {
                 price: '120.99',
                 featured: true,
                 image: '../assets/img/4.jpg',
+                promotion_image: '../assets/img/promotion-image-4.jpg',
                 quantity: 20
             },
             {
@@ -32,6 +34,7 @@ export class InMemoryDataService implements InMemoryDbService {
                 price: '15.99',
                 featured: true,
                 image: '../assets/img/5.jpg',
+                promotion_image: '../assets/img/promotion-image-5.jpg',
                 quantity: 20
             }
         ];

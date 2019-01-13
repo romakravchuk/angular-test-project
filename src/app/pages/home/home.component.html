@@ -1,5 +1,5 @@
 <swiper>
-    <div *ngFor="let featuredProduct of featuredProducts" [ngStyle]="{'background-image': 'url(' + featuredProduct.image + ')'}">
+    <div *ngFor="let featuredProduct of featuredProducts" [ngStyle]="{'background-image': 'url(' + featuredProduct.promotion_image + ')'}">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-xl-6">
@@ -8,7 +8,7 @@
                         <p>{{featuredProduct.description}}</p>
                         <h5>${{featuredProduct.price}}</h5>
                         <div class="group">
-                            <button class="btn btn-outline-dark">Read More</button>
+                            <a routerLink="/detail/{{featuredProduct.id}}" class="btn btn-outline-dark">Read More</a>
                             <button class="btn btn-success m-1" (click)='addProductToCart(featuredProduct)'>Buy Product</button>
                         </div>
                     </div>

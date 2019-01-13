@@ -13,24 +13,25 @@
             </nav>
             <nav class='nav nav-navbar ml-lg-5'>
                 <div class="shopping-cart-wrap">
-                    <a class='nav-link' href='#'> <i class='fa fa-shopping-cart'></i>
+                    <button class='nav-link btn btn-link' type='button' (click)='showCart()'> <i class='fa fa-shopping-cart'></i>
                         <span class='badge badge-number badge-danger' *ngIf='productsInCart.length'>{{sumTotalItemsInCart}}</span>
-                    </a>
-                    <div class='shopping-list-cart' *ngIf='productsInCart.length'>
+                    </button>
+                    <div class='shopping-list-cart' *ngIf='productsInCart.length' [ngClass]='{"show": isCartOpen}' (mouseleave)='hideCart()'> 
                         <div class='shopping-list-cart-header'>
                             <h6>My Cart</h6>
                         </div>
                         <ul class='list-unstyled shopping-list-cart-product'>
-                            <li *ngFor="let product of productsInCart" class='d-flex'>
-                                <div>
+                            <li *ngFor="let product of productsInCart" class='d-flex media'>
+                                <div class='shopping-list-cart-img-container'>
                                     <img [src]='product.image' alt=''>
                                 </div>
-                                <div class='ml-1 small'>
+                                <div class='ml-2 small media-body'>
                                     <div>{{product.product}}</div>
                                     <div>
                                         <span *ngIf='product.quantityInCart > 1'>{{product.quantityInCart}} x </span>
                                         <span>${{product.price}}</span>
                                     </div>
+                                    <button type='button' class='btn btn-link p-0 pull-right' (click)='removeProductFromCart(product)' ngbTooltip='Remove Item From Cart' placement='top' container="body"><span class='fa fa-trash-o'></span></button>
                                 </div>
                             </li>
                         </ul>
@@ -40,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <a class='nav-link' href='#' data-toggle='offcanvas' data-target='#offcanvas-search'><i class='fa fa-search'></i></a>
+                <button class='nav-link btn btn-link' type='button'><i class='fa fa-search'></i></button>
             </nav>
         </section>
     </div>
