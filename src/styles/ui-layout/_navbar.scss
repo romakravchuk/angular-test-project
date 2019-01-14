@@ -183,7 +183,6 @@
 .nav-navbar .nav {
 	position: absolute;
 	flex-direction: column;
-	//min-width: $navbar-submenu-min-width;
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
 	background-color: #fff;
@@ -325,7 +324,7 @@
 					top: 0;
 					left: -300px;
 					bottom: 0;
-					padding: 20px;
+					padding: 60px 20px 20px;
 					margin-top: -10px;
 					margin-bottom: -10px;
 					background-color: #fff;

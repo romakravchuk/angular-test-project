@@ -11,7 +11,7 @@
                     {{link.label}}
                 </a>
             </nav>
-            <nav class='nav nav-navbar ml-lg-5'>
+            <nav class='nav nav-navbar ml-lg-5 d-flex align-items-center flex-row'>
                 <div class="shopping-cart-wrap">
                     <button class='nav-link btn btn-link' type='button' (click)='showCart()'> <i class='fa fa-shopping-cart'></i>
                         <span class='badge badge-number badge-danger' *ngIf='productsInCart.length'>{{sumTotalItemsInCart}}</span>

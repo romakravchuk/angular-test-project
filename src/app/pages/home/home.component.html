@@ -18,3 +18,30 @@
     </div>
 </swiper>
 
+<!-- section -->
+<section class='section'>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-6 col-xl-8'>
+                <h2>Shop Now</h2>
+                <hr>
+                <p class="lead">Won't said night above you're she'd behold moveth said one fowl. Beast forth. Man creepeth. She'd above bring blessed.</p>
+            </div>
+        </div>
+        <div class='row row-30 mt-5'>
+            <div class="col-md-6 col-xl-4" *ngFor="let item of listOfProducts">
+                <a class="product-1" routerLink="/detail/{{item.id}}">
+                    <div class="product-detail">
+                        <div>
+                            <h6>{{item.product}}</h6>
+                            <p>{{item.description}}</p>
+                        </div>
+                        <div class="product-price"><span class="unit">$</span>{{item.price}}</div>
+                    </div>
+                    <img [src]="item.image" alt="product">
+                </a>
+            </div>
+        </div>
+    </div>
+</section><!-- END section-->
+
