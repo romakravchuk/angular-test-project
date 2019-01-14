@@ -18,14 +18,11 @@ export class HeaderComponent implements OnInit {
     sumTotalPriceInCart: number;
     sumTotalItemsInCart: number;
 
-    constructor(private pagesService: PagesService) {
-    }
+    constructor(private pagesService: PagesService) {}
 
     ngOnInit() {
-        if (this.productsInCart.length) {
-            this.watchCartForChanges();
-            this.checkCartForProducts();
-        }
+        this.watchCartForChanges();
+        this.checkCartForProducts();
     }
 
     private checkCartForProducts() {
@@ -56,11 +53,12 @@ export class HeaderComponent implements OnInit {
         this.productsInCart = this.productsInCart.filter(p => p.id !== product.id);
 
         this.pagesService.clearLocalStorageCart();
-        this.pagesService.setLocalStorageCart(this.productsInCart);
         if (this.productsInCart.length) {
+            this.pagesService.setLocalStorageCart(this.productsInCart);
             this.calculateTotalPrice();
             this.calculateTotalItemsInCart();
         }
+        this.isCartOpen = false;
     }
 
     private calculateTotalPrice() {

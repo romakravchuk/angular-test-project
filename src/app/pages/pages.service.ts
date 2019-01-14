@@ -10,8 +10,7 @@ export class PagesService {
     public storageSub = new Subject<any>();
     public watchStorage = this.storageSub.asObservable();
 
-    constructor() {
-    }
+    constructor() {}
 
     public addProduct(data: any) {
         if (this.productKey in localStorage) {
@@ -47,6 +46,7 @@ export class PagesService {
     }
 
     public clearLocalStorageCart() {
+        this.currentProduct = [];
         return localStorage.clear();
     }
 
