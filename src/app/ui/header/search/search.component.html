@@ -1,0 +1,11 @@
+<button class='nav-link btn btn-link btn-search' type='button'><i class='fa fa-search'></i></button>
+
+<div class="search-wrapper">
+  <input #searchBox type="text" (input)="search(searchBox.value)" placeholder="search text goes here">
+
+  <ul>
+    <li *ngFor="let result of searchResult$ | async">
+      {{result | json}}
+    </li>
+  </ul>
+</div>

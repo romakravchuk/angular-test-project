@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -23,6 +24,7 @@ import {HomeComponent} from './pages/home/home.component';
 import {AboutComponent} from './pages/about/about.component';
 import {ContactsComponent} from './pages/contacts/contacts.component';
 import {ProductsService} from './products/products.service';
+import { SearchComponent } from './ui/header/search/search.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     autoplay: {
@@ -41,12 +43,14 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
         HomeComponent,
         AboutComponent,
         ContactsComponent,
+        SearchComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         NgbModule,
+        FormsModule,
 
         // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
         // and returns simulated server responses.
